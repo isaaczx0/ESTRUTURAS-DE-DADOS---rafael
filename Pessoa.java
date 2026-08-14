@@ -1,17 +1,22 @@
 public class Pessoa{
     private String nome;
     private int idade;
+    private Endereco end;
 
 
     public Pessoa(){
-        this(null, 0);
+        this(null, 0, new Endereco());
     }
 
     public Pessoa(String nome, int idade){
         setNome(nome);
         setIdade(idade);
     }
-
+    public Pessoa(String nome, int idade, Endereco end){
+        setNome(nome);
+        setIdade(idade);
+        setEnd(end);
+    }
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -27,9 +32,14 @@ public class Pessoa{
     public int getIdade(){
         return this.idade;
     }
-
+    public void setEnd(Endereco end){
+        this.end = end;
+    }
+    public Endereco getEnd(){
+        return this.end;
+    }
     @Override
     public String toString(){
-        return String.format("Pessoa[Nome: %s, Idade: %d]",getNome(),getIdade());
+        return String.format("Pessoa[Nome: %s, Idade: %d, Endereco: %s]",getNome(),getIdade(),getEnd());
     }
 }
